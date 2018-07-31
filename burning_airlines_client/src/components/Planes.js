@@ -26,10 +26,11 @@ class CreatPlane extends Component {
 }// end of CreatPlane
 ////////Need to fix
 class DisplayPlane {
-  return() {
+  render() {
+  return(
     <div>
     { this.props.planes.map( (s) => <p key={s.id}>{s.name, s.row, s.column}</p> ) }
-    
+
     </div>
   );
 
