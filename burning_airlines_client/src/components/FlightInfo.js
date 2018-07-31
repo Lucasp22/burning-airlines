@@ -14,6 +14,19 @@ class FlightInfo extends Component {
 }
 
 class Seats extends Component {
+  constructor () {
+    super();
+    this.state ={
+      seats: 'available'
+    }
+    this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleSubmit(e){
+    e.preventDefault();
+
+  }
+
   render(){
     return(
       <div>
@@ -30,33 +43,33 @@ class Seats extends Component {
       <tbody>
       <tr>
       <th>21</th>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
+      <td><input type="submit" value= {this.state.seats} name = "21A" onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} name = "21A" onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} name = "21A" onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} name = "21A" onClick = {this._handleSubmit}/></td>
       </tr>
 
       <tr>
       <th>22</th>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
+      <td><input type="submit" value= {this.state.seats} name = "21A" onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} name = "21A" onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} name = "21A" onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} name = "21A" onClick = {this._handleSubmit}/></td>
       </tr>
 
       <tr>
       <th>23</th>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
+      <td><input type="submit" value= {this.state.seats} onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} onClick = {this._handleSubmit}/></td>
       </tr>
       <tr>
       <th>24</th>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
-      <td><input type="submit" value= "Sam"/></td>
+      <td><input type="submit" value= {this.state.seats} onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} onClick = {this._handleSubmit}/></td>
+      <td><input type="submit" value= {this.state.seats} onClick = {this._handleSubmit}/></td>
       </tr>
       </tbody>
       </table>
