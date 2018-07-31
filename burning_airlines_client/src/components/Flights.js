@@ -7,14 +7,13 @@ class Flights extends Component {
     return(
       <div>
       <CreatFlight />
-      < />
-      <DisplayFlight /div>
+      <DisplayFlight />
+      < div/>
     );
-
   }
 }
 
-class CreatFlight {
+class CreatFlight extends Component {
   render() {
     return(
       <form>
@@ -28,8 +27,12 @@ class CreatFlight {
     );
   }
 }
-class DisplayFlight {
+class DisplayFlight extends Component {
   constructor() {
+
+    <div>
+    { this.props.planes.map( (s) => <p key={s.id}>{s.flight_name, s.origin, s.destination, s.date, s.plane_id}</p> ) }//need to check if works like that
+    </div>
 
   }
 }

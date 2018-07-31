@@ -4,7 +4,9 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 // import FAQ from './components/FAQ';
 // import Character from './components/Character'
 import FlightInfo from './components/FlightInfo'
-import Planes from './components/Planes'
+import Planes from './components/Planes';
+import Flights from './components/Flights';
+
 import SearchFlight from './components/SearchFlight'
 
 

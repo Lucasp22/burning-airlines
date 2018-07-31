@@ -29,7 +29,7 @@ class DisplayPlane {
   render() {
   return(
     <div>
-    { this.props.planes.map( (s) => <p key={s.id}>{s.name, s.row, s.column}</p> ) }
+    { this.props.planes.map( (s) => <p key={s.id}>{s.name, s.row, s.column}</p> ) }//need to check if works like that
 
     </div>
   );
