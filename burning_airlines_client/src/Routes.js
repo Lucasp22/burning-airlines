@@ -4,13 +4,17 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 // import FAQ from './components/FAQ';
 // import Character from './components/Character'
 import FlightInfo from './components/FlightInfo'
+
+import Planes from './components/Planes'
+
 import SearchFlight from './components/SearchFlight'
+
 
 
 const Routes = (
   <Router>
     <div>
-
+      <Route path = "/planes" component = {Planes} />
       <Route path = "/flightinfo" component = {FlightInfo} />
       <Route exact path="/searchflight" component={SearchFlight} />
 
