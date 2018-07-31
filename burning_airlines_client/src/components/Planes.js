@@ -16,6 +16,7 @@ class CreatPlane extends Component {
   render() {
     return(
       <form>
+        <h2>Add Planes</h2>
         <input type="text" placeholder="Name" required autofocus />
         <input type="text" placeholder="Rows" required />
         <input type="integer" placeholder="Column" required />
@@ -25,11 +26,12 @@ class CreatPlane extends Component {
   }
 }// end of CreatPlane
 ////////Need to fix
-class DisplayPlane {
+class DisplayPlane extends Component {
   render() {
   return(
     <div>
-    { this.props.planes.map( (s) => <p key={s.id}>{s.name, s.row, s.column}</p> ) }//need to check if works like that
+    {/* { this.props.planes.map( (s) => <p key={s.id}>{s.name, s.row, s.column}</p> ) } */}
+    {/* need to check if works like that */}
 
     </div>
   );

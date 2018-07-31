@@ -15,6 +15,7 @@ const Routes = (
   <Router>
     <div>
       <Route path = "/planes" component = {Planes} />
+      <Route path = "/flights" component = {Flights} />
       <Route path = "/flightinfo" component = {FlightInfo} />
       <Route exact path="/searchflight" component={SearchFlight} />
 

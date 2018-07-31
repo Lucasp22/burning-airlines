@@ -8,15 +8,16 @@ class Flights extends Component {
       <div>
       <CreatFlight />
       <DisplayFlight />
-      < div/>
+      </div>
     );
   }
-}
+};
 
 class CreatFlight extends Component {
   render() {
     return(
       <form>
+        <h2>Flights</h2>
       <input type="text" placeholder="Flight name" required autofocus />
       <input type="text" placeholder="Origin" required />
       <input type="text" placeholder="Destination" required  />
@@ -28,12 +29,17 @@ class CreatFlight extends Component {
   }
 }
 class DisplayFlight extends Component {
-  constructor() {
+  // constructor() {
+  render() {
+    return(
+
 
     <div>
-    { this.props.planes.map( (s) => <p key={s.id}>{s.flight_name, s.origin, s.destination, s.date, s.plane_id}</p> ) }//need to check if works like that
-    </div>
 
+    {/* { this.props.planes.map( (s) => <p key={s.id}>{s.flight_name, s.origin, s.destination, s.date, s.plane_id}</p> ) } */}
+    {/* need to check if works like that */}
+    </div>
+  )
   }
 }
 
