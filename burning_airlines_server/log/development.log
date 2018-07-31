@@ -402,3 +402,69 @@ Processing by FlightsController#index as HTML
 Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/flights/new" for 127.0.0.1 at 2018-07-31 16:53:54 +1000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/zabrinatan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by FlightsController#new as HTML
+  Rendering flights/new.html.erb within layouts/application
+  Rendered flights/_form.html.erb (16.0ms)
+  Rendered flights/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 335ms (Views: 263.7ms | ActiveRecord: 50.1ms)
+
+
+Started POST "/flights" for 127.0.0.1 at 2018-07-31 16:54:01 +1000
+Processing by FlightsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CKIYtcPQvrHNJuhNbI6E1WCTm2yeL7lZYVmTKhv9HAHgxYzttGusGQog0H9pNC9YYQWpI5Xw3YlRJH3wZhs48w==", "flight"=>{"flight_name"=>"jfeof", "origin"=>"erf", "destination"=>"ff", "date(1i)"=>"2018", "date(2i)"=>"7", "date(3i)"=>"31", "plane_id"=>""}, "commit"=>"Create Flight"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/flights_controller.rb:30
+  [1m[36mFlight Create (1.6ms)[0m  [1m[32mINSERT INTO "flights" ("flight_name", "origin", "destination", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["flight_name", "jfeof"], ["origin", "erf"], ["destination", "ff"], ["date", "2018-07-31"], ["created_at", "2018-07-31 06:54:01.398873"], ["updated_at", "2018-07-31 06:54:01.398873"]]
+  ↳ app/controllers/flights_controller.rb:30
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/flights_controller.rb:30
+Redirected to http://localhost:3000/flights/3
+Completed 302 Found in 8ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/flights/3" for 127.0.0.1 at 2018-07-31 16:54:01 +1000
+Processing by FlightsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT  "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:67
+  Rendering flights/show.html.erb within layouts/application
+  Rendered flights/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 25.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/flights" for 127.0.0.1 at 2018-07-31 16:54:09 +1000
+Processing by FlightsController#index as HTML
+  Rendering flights/index.html.erb within layouts/application
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.html.erb:18
+  Rendered flights/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 34ms (Views: 23.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/flights/3" for 127.0.0.1 at 2018-07-31 16:54:15 +1000
+Processing by FlightsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2CqiFRutoqoQkz+J8YOBKuanDhicRS7DXBNJpZrgnZUwTTZNbBawAteVB7v0OSqn5zE8V5eaShNsbqd/5wa5Zw==", "id"=>"3"}
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT  "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:67
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/flights_controller.rb:57
+  [1m[36mFlight Destroy (0.4ms)[0m  [1m[31mDELETE FROM "flights" WHERE "flights"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/flights_controller.rb:57
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/flights_controller.rb:57
+Redirected to http://localhost:3000/flights
+Completed 302 Found in 12ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/flights" for 127.0.0.1 at 2018-07-31 16:54:15 +1000
+Processing by FlightsController#index as HTML
+  Rendering flights/index.html.erb within layouts/application
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.html.erb:18
+  Rendered flights/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 32ms (Views: 26.8ms | ActiveRecord: 0.5ms)
+
+
