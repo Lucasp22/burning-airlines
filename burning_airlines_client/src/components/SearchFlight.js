@@ -17,9 +17,9 @@ class SearchForm extends Component {
   render() {
     return(
       <form>
-        <input type="text" placeholder="Origin" required autofocus>
-        <input type="text" placeholder="Destination" required>
-        <input type="submit" value="Go">
+        <input type="text" placeholder="Origin" required autofocus />
+        <input type="text" placeholder="Destination" required />
+        <input type="submit" value="Go" />
       </form>
     )
   }
@@ -37,13 +37,12 @@ class FlightResults extends Component {
       <ul>
         {flights.map(function(flight) {
           //below is not quote complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.
-          return <li><Link to={`/flight/${flight}`}></li>;
-        })};
+          // return <li><Link to={`/flight/${flight}`}>flight:{flight}</Link></li>;
+          return <li>flight:{flight}</li>
+        })}
       </ul>
-
-
-
-      <Link to="/flight"> //this will be the only link you have to hard code cos you will wrap the loop around this, so it will just print however many you have
     )
   }
 }
+
+export default SearchFlights;
