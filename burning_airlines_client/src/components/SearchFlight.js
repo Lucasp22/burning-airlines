@@ -6,6 +6,7 @@ class SearchFlights extends Component {
   render() {
     return(
       <div>
+        <h1>Search Flights</h1>
         <SearchForm />
         <FlightResults />
       </div>
@@ -34,13 +35,17 @@ class FlightResults extends Component {
       //going to take the flight info and loop through to push links for each onto page....
 
       //this is the flight info in array:
-      <ul>
-        {flights.map(function(flight) {
-          //below is not quote complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.
-          return <li><Link to={`/flight/${flight}`}>flight:{flight}</Link></li>;
-          // return <li>flight:{flight}</li>
-        })}
-      </ul>
+
+      <div>
+        <p>The following flights matched your search:</p>
+        <ul>
+          {flights.map(function(flight) {
+            //below is not quote complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.
+            return <li><Link to={`/flight/${flight}`}>flight:{flight}</Link></li>;
+            // return <li>flight:{flight}</li>
+          })}
+        </ul>
+    </div>
     )
   }
 }
