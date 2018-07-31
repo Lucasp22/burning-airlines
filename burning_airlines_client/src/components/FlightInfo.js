@@ -6,6 +6,7 @@ class FlightInfo extends Component {
       <div>
       <h1> Flight Info Coming Soon </h1>
       <Seats />
+      <br />
       <ConfirmSeat />
       </div>
     )
@@ -16,7 +17,6 @@ class Seats extends Component {
   render(){
     return(
       <div>
-      <h1> Seats coming soon </h1>
       <table>
       <thead>
       <tr>
@@ -69,7 +69,12 @@ class ConfirmSeat extends Component {
   render(){
     return(
       <div>
-      <h1> Confirm Seats coming soon </h1>
+
+      <div>
+      <span> Seat chosen here </span>
+      <input type="submit" value ="Select Seat"/>
+      </div>
+
       </div>
     )
   }
