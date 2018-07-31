@@ -37,8 +37,8 @@ class FlightResults extends Component {
       <ul>
         {flights.map(function(flight) {
           //below is not quote complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.
-          // return <li><Link to={`/flight/${flight}`}>flight:{flight}</Link></li>;
-          return <li>flight:{flight}</li>
+          return <li><Link to={`/flight/${flight}`}>flight:{flight}</Link></li>;
+          // return <li>flight:{flight}</li>
         })}
       </ul>
     )
