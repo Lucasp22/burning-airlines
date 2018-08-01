@@ -16,7 +16,7 @@ class LoginForm extends Component {
     return(
       <form>
         <h2>Login</h2>
-      <input name="user_name"type="text" placeholder="User Name" required autofocus />
+      <input name="user_name"type="text" placeholder="User Name" required autoFocus />
       <input type="text" placeholder="Password" required />
       <input name="submit" type="submit" value="Submit" />
       </form>
