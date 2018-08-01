@@ -8,6 +8,7 @@ class SearchFlights extends Component {
       <div>
         <h1>Search Flights</h1>
         <SearchForm />
+        {/* this is like gallery */}
         <FlightResults />
       </div>
     )
