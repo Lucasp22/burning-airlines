@@ -28022,3 +28022,157 @@ Processing by PlanesController#show as JSON
 Completed 200 OK in 13ms (Views: 9.2ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:24 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (1.8ms)
+Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:28 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.4ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (1.6ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:32 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (1.6ms)
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:36 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (1.7ms)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:40 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (2.0ms)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:44 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.4ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.6ms)
+  Rendered planes/show.json.jbuilder (1.8ms)
+Completed 200 OK in 12ms (Views: 8.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:48 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (1.7ms)
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:52 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (1.8ms)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:46:57 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.4ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (1.0ms)
+  Rendered planes/show.json.jbuilder (2.5ms)
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:47:02 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.9ms)
+  Rendered planes/show.json.jbuilder (3.3ms)
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:47:07 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.6ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.6ms)
+  Rendered planes/show.json.jbuilder (2.0ms)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:47:12 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (2.0ms)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:47:17 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.6ms)
+  Rendered planes/show.json.jbuilder (1.9ms)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes/1.json" for 127.0.0.1 at 2018-08-01 21:47:21 +1000
+Processing by PlanesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.4ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.json.jbuilder
+  Rendered planes/_plane.json.jbuilder (0.5ms)
+  Rendered planes/show.json.jbuilder (1.6ms)
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.4ms)
+
+
