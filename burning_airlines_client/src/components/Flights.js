@@ -73,7 +73,7 @@ class Flights extends Component {
   render(){
     return (
       <div>
-        <h1>Flights<h/1>
+        <h1>Flights</h1>
           <CreateFlights onSubmit={ this.saveFlight } />
           <Display flights={ this.state.flights } />
       </div>
