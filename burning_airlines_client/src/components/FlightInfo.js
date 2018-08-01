@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-let id = 1;
 
-const SERVER_URL = `http://localhost:3000/planes/${id}.json`
+
 
 class FlightInfo extends Component {
+
   constructor(){
     super();
     this.state ={
@@ -14,22 +14,29 @@ class FlightInfo extends Component {
       seat_names: [[]],
       confirmed_seats: ["2B"]
     }
+
     this.updateSeat = this.updateSeat.bind(this);
     this.chooseSeat = this.chooseSeat.bind(this);
-    const fetchPlaneDetails = () => {
-    axios.get(SERVER_URL).then((results) => {
-      let rows = []
-      const rowLength = +results.data.row
-      for(let i = 1 ; i< rowLength+1 ; i++){
-          rows.push([i+"A",i+"B", i+"C",i+"D"]);
-      }
-      this.setState({ seat_names: rows})
-      setTimeout(fetchPlaneDetails, 4000);
-    })
-  }
-    fetchPlaneDetails();
+
 }
 
+componentDidMount(){
+  let id = this.props.match.params.id
+  console.log(id)
+  const SERVER_URL = `http://localhost:3000/planes/${id}.json`
+  const fetchPlaneDetails = () => {
+  axios.get(SERVER_URL).then((results) => {
+    let rows = []
+    const rowLength = +results.data.row
+    for(let i = 1 ; i< rowLength+1 ; i++){
+        rows.push([i+"A",i+"B", i+"C",i+"D"]);
+    }
+    this.setState({ seat_names: rows})
+    setTimeout(fetchPlaneDetails, 4000);
+  })
+}
+  fetchPlaneDetails();
+}
 
 chooseSeat(seatNumber){
   this.setState({
@@ -52,7 +59,6 @@ updateSeat(seatNumber){
   render() {
     return(
       <div>
-      <h1> Flight Info Coming Soon </h1>
       <Seats onClick = {this.chooseSeat} seat_names = {this.state.seat_names} confirmed_seats = {this.state.confirmed_seats}/>
       <br />
       <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat} confirmed_seats = {this.state.confirmed_seats}/>
