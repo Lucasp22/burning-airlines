@@ -59,10 +59,10 @@ class Flights extends Component {
     const fetchFlight = () => {
       axios.get(SERVER_URL).then( (results) => {
         this.setState({ flights: results.data });
-        setTimeout(fetchSecrets, 4000);
+        setTimeout(fetchFlight, 4000);
       });
     }
-    fetchFlights();
+    fetchFlight();
   }
 
   saveFlight(s) {
@@ -86,7 +86,7 @@ class Display extends Component {
     return (
       <div>
           <ul>
-            {this.props.flights.map(s) => <p key={s.id}>{s.name}&nbsp{s.name}&nbsp;{s.flight_name}&nbsp;{s.origin}&nbsp;{s.destination}&nbsp;{s.date}&nbsp;{s.plane_id}</p>}
+            {this.props.flights.map((s) => <p key={s.id}>{s.name}&nbsp{s.name}&nbsp;{s.flight_name}&nbsp;{s.origin}&nbsp;{s.destination}&nbsp;{s.date}&nbsp;{s.plane_id}</p>)}
 
           </ul>
       </div>
