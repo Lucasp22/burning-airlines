@@ -11,15 +11,19 @@ class FlightInfo extends Component {
     this.state ={
       seats: "Available",
       seat_num: "",
-      rows: []
+      seat_names: [[]],
+      confirmed_seats: ["2B"]
     }
-    // this.chooseSeat = this.chooseSeat.bind(this);
-    // this.updateSeat = this.updateSeat.bind(this);
+    this.updateSeat = this.updateSeat.bind(this);
+    this.chooseSeat = this.chooseSeat.bind(this);
     const fetchPlaneDetails = () => {
     axios.get(SERVER_URL).then((results) => {
-      console.log(results.row)
-      const rows = new Array(+results.row)
-      this.setState({ rows: rows})
+      let rows = []
+      const rowLength = +results.data.row
+      for(let i = 1 ; i< rowLength+1 ; i++){
+          rows.push([i+"A",i+"B", i+"C",i+"D"]);
+      }
+      this.setState({ seat_names: rows})
       setTimeout(fetchPlaneDetails, 4000);
     })
   }
@@ -29,23 +33,29 @@ class FlightInfo extends Component {
 
 chooseSeat(seatNumber){
   this.setState({
+
     seat_num: seatNumber
 
 })
 }
-// updateSeat(taken) {
-//   this.setState({
-//     seats: taken
-//   })
-// }
+
+updateSeat(seatNumber){
+  console.log(seatNumber)
+
+  let confirmedSeats = this.state.confirmed_seats
+  confirmedSeats.push(seatNumber)
+  this.setState({
+    confirmed_seats:confirmedSeats
+  })
+}
 
   render() {
     return(
       <div>
       <h1> Flight Info Coming Soon </h1>
-      <Seats onClick = {this.chooseSeat} rows = {this.state.rows       }/>
+      <Seats onClick = {this.chooseSeat} seat_names = {this.state.seat_names} confirmed_seats = {this.state.confirmed_seats}/>
       <br />
-      <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat}/>
+      <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat} confirmed_seats = {this.state.confirmed_seats}/>
       </div>
     )
   }
@@ -56,20 +66,19 @@ class Seats extends Component {
   constructor () {
     super();
     this.state ={
-      seats: 'available',
-      seat_num: ""
+      seat_num: "",
+      selected_seat: ""
     }
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
 
-  _handleSubmit(seatData){
+  _handleSubmit(e){
+    e.preventDefault()
     this.setState({
-    seat_num: seatData
+      selected_seat: e.target.value
     })
-
-    this.props.onClick(this.state.seat_num)
-
+    this.props.onClick(e.target.value)
   }
 
   render(){
@@ -77,22 +86,11 @@ class Seats extends Component {
       <div>
       <table>
       <thead>
-      <tr>
-      <th></th>
-      <th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-</tr>
+
+
 </thead>
 <tbody>
-<tr>
-<th></th>
-
-
-
-
-</tr>
+  {this.props.seat_names.map((seats_row)=><TableRow seats_row = {seats_row} onClick = {this._handleSubmit} confirmed_seats ={this.props.confirmed_seats} />)}
 </tbody>
 </table>
 </div>
@@ -100,26 +98,33 @@ class Seats extends Component {
   }
 }
 
+function TableRow (props) {
+
+
+  return (
+    <tr>{props.seats_row.map((seat)=> {
+      return <td> <input type = "button" value ={props.confirmed_seats.includes(seat)? "X" : seat } onClick = {props.onClick} style={{ width: 100, fontSize: 50, padding: 50 }}/></td>
+    })}</tr>
+  )
+}
+
 class ConfirmSeat extends Component {
   constructor(){
     super();
     this.state = {
-      seats: "Available"
+
     }
   }
-  _handleSubmit(taken) {
-    this.setState({
-      seats: taken
-    })
-    this.props.onClick(this.state.seats)
-  }
+
+
+
   render(){
     return(
       <div>
 
       <div>
       <span> {this.props.num} </span>
-      <input type="button" value ="Select Seat" onClick = {() => this._handleSubmit('      X       ')}/>
+      <input type="button" value ="Select Seat" onClick = {() => this.props.onClick(this.props.num)}/>
       </div>
 
       </div>
