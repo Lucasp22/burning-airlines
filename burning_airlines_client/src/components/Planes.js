@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+// const SERVER_URL = 'http://localhost:3000/planes.json';
 
 class Planes extends Component {
+
   render() {
     return(
       <div>
@@ -30,8 +34,8 @@ class DisplayPlane extends Component {
   render() {
   return(
     <div>
-    {/* { this.props.planes.map( (s) => <p key={s.id}>{s.name, s.row, s.column}</p> ) } */}
-    {/* need to check if works like that */}
+    {/*{ this.props.planes.map( (s) => <p key={s.id}>{s.id},{s.name}, {s.column}</p> ) } */}
+
 
     </div>
   );
