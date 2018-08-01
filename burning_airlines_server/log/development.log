@@ -2545,6 +2545,7 @@ Completed 200 OK in 311ms (Views: 269.1ms | ActiveRecord: 12.7ms)
   ↳ db/seeds.rb:14
   [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:14
+<<<<<<< HEAD
   [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
   [1m[36mPlane Load (1.1ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
@@ -2840,6 +2841,46 @@ Completed 200 OK in 51ms (Views: 28.8ms | ActiveRecord: 6.9ms)
 Started GET "/flightsinfo" for 127.0.0.1 at 2018-08-01 12:34:01 +1000
   
 ActionController::RoutingError (No route matches [GET] "/flightsinfo"):
+=======
+Started GET "/flights/new" for 127.0.0.1 at 2018-08-01 12:27:16 +1000
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by FlightsController#new as HTML
+  Rendering flights/new.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "planes"."name", "planes"."id" FROM "planes"[0m
+  ↳ app/views/flights/_form.html.erb:36
+  Rendered flights/_form.html.erb (73.4ms)
+  Rendered flights/new.html.erb within layouts/application (83.7ms)
+Completed 200 OK in 748ms (Views: 673.0ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/flights/new" for 127.0.0.1 at 2018-08-01 12:27:27 +1000
+Processing by FlightsController#new as HTML
+  Rendering flights/new.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "planes"."name", "planes"."id" FROM "planes"[0m
+  ↳ app/views/flights/_form.html.erb:36
+  Rendered flights/_form.html.erb (5.5ms)
+  Rendered flights/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 48ms (Views: 44.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/flights.json" for 127.0.0.1 at 2018-08-01 12:28:04 +1000
+Processing by FlightsController#index as JSON
+  Rendering flights/index.json.jbuilder
+  [1m[36mFlight Load (0.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.json.jbuilder:1
+  Rendered flights/_flight.json.jbuilder (0.8ms)
+  Rendered flights/_flight.json.jbuilder (0.3ms)
+  Rendered flights/_flight.json.jbuilder (0.3ms)
+  Rendered flights/_flight.json.jbuilder (0.7ms)
+  Rendered flights/index.json.jbuilder (30.3ms)
+Completed 200 OK in 48ms (Views: 40.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/flight.json" for 127.0.0.1 at 2018-08-01 14:26:39 +1000
+  
+ActionController::RoutingError (No route matches [GET] "/flight.json"):
+>>>>>>> a5f0a0489162160accb1c0ecb8e0e8607135f90a
   
 actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
 web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
@@ -2868,9 +2909,15 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/secrets.json" for 127.0.0.1 at 2018-08-01 12:34:47 +1000
   
 ActionController::RoutingError (No route matches [GET] "/secrets.json"):
+=======
+Started GET "/flight.json" for 127.0.0.1 at 2018-08-01 14:27:26 +1000
+  
+ActionController::RoutingError (No route matches [GET] "/flight.json"):
+>>>>>>> a5f0a0489162160accb1c0ecb8e0e8607135f90a
   
 actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
 web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
@@ -2899,9 +2946,17 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/secrets.json" for 127.0.0.1 at 2018-08-01 12:34:56 +1000
   
 ActionController::RoutingError (No route matches [GET] "/secrets.json"):
+=======
+Started GET "/flight.json" for 127.0.0.1 at 2018-08-01 14:31:40 +1000
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/flight.json"):
+>>>>>>> a5f0a0489162160accb1c0ecb8e0e8607135f90a
   
 actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
 web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
@@ -2924,12 +2979,17 @@ activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.r
 actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
 actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
 rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+<<<<<<< HEAD
+=======
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+>>>>>>> a5f0a0489162160accb1c0ecb8e0e8607135f90a
 railties (5.2.0) lib/rails/engine.rb:524:in `call'
 puma (3.12.0) lib/puma/configuration.rb:225:in `call'
 puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/planes.json" for 127.0.0.1 at 2018-08-01 12:35:55 +1000
 Processing by PlanesController#index as JSON
   Rendering planes/index.json.jbuilder
@@ -3115,3 +3175,5 @@ Processing by PlanesController#show as JSON
 Completed 200 OK in 25ms (Views: 16.9ms | ActiveRecord: 2.9ms)
 
 
+=======
+>>>>>>> a5f0a0489162160accb1c0ecb8e0e8607135f90a

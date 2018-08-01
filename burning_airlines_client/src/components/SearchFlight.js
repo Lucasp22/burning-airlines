@@ -1,25 +1,52 @@
 import React, {Component} from 'react';
 //need to install npm package once i have file so that i can use the below:
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+const SERVER_URL = 'http://localhost:3000/flight.json';
 
 class SearchFlights extends Component {
+  constructor() {
+    super();
+    this.state = {
+       flights: [{flight: 'QF1'}, {flight: 'VG2'}, {flight: 'JS9'}]
+  }
+}
+
+  //this is syntax for fat arrow function.
+  getFlights = (origin, destination) => {
+    axios.get(SERVER_URL).then(function(results){
+      console.log(results);
+    })
+  }
+
   render() {
     return(
       <div>
         <h1>Search Flights</h1>
-        <SearchForm />
+        <SearchForm onSubmit={this.getFlights}/>
         {/* this is like gallery */}
-        <FlightResults />
+        <FlightResults flights={this.props.flights} />
       </div>
     )
   }
 }
 
 class SearchForm extends Component {
+  constructor() {
+    super();
+    this.state = {query: ''}
+    this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleSubmit(event) {
+    event.preventDefault();
+    this.props.onSubmit("arg1", "arg2");
+  }
+
   render() {
     return(
-      <form>
-        <input type="text" placeholder="Origin" required autofocus />
+      <form onSubmit={this._handleSubmit}>
+        <input type="text" placeholder="Origin" required autoFocus />
         <input type="text" placeholder="Destination" required />
         <input type="submit" value="Go" />
       </form>
@@ -30,9 +57,7 @@ class SearchForm extends Component {
 class FlightResults extends Component {
   render() {
       const flights = ['QF1', 'VG2', 'JS9'];
-      // [
-      // {date: "02/08/2018", Flight: 'QF1', FromTo: "SYD > MEL", plane: 747},{date: "03/08/2018", Flight: 'JS002', FromTo: "SYD > JFK", plane: 747},{date: "04/08/2018", Flight: 'JAL178', FromTo: "SYD > NRT", plane: 747}
-      // ]
+
 
 
     return(
@@ -46,7 +71,7 @@ class FlightResults extends Component {
         <p>Flight Search Results:</p>
         <ul>
           {flights.map(function(flight) {
-            //below is not quote complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.
+            //below is not quite complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.
             return <li>Flight: <Link to={`/flight`}>{flight}</Link></li>;
             // return <li>flight:{flight}</li>
           })}
