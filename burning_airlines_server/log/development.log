@@ -816,3 +816,275 @@ Processing by ReservationsController#show as HTML
 Completed 200 OK in 507ms (Views: 432.6ms | ActiveRecord: 43.1ms)
 
 
+Started GET "/flights.json" for 127.0.0.1 at 2018-08-01 11:07:36 +1000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by FlightsController#index as JSON
+  Rendering flights/index.json.jbuilder
+  [1m[36mFlight Load (0.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.json.jbuilder:1
+  Rendered flights/index.json.jbuilder (20.3ms)
+Completed 200 OK in 79ms (Views: 37.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 11:08:27 +1000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/railties-5.2.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/railties-5.2.0/lib/rails/templates/rails/welcome/index.html.erb (6.8ms)
+Completed 200 OK in 18ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 11:08:31 +1000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/railties-5.2.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/railties-5.2.0/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 13ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/flights.json" for 127.0.0.1 at 2018-08-01 11:08:35 +1000
+Processing by FlightsController#index as JSON
+  Rendering flights/index.json.jbuilder
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.json.jbuilder:1
+  Rendered flights/index.json.jbuilder (2.2ms)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/flights" for 127.0.0.1 at 2018-08-01 11:08:40 +1000
+Processing by FlightsController#index as HTML
+  Rendering flights/index.html.erb within layouts/application
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.html.erb:18
+  Rendered flights/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 624ms (Views: 619.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/flights/new" for 127.0.0.1 at 2018-08-01 11:08:46 +1000
+Processing by FlightsController#new as HTML
+  Rendering flights/new.html.erb within layouts/application
+  Rendered flights/_form.html.erb (74.2ms)
+  Rendered flights/new.html.erb within layouts/application (80.1ms)
+Completed 200 OK in 166ms (Views: 121.1ms | ActiveRecord: 27.1ms)
+
+
+Started POST "/flights" for 127.0.0.1 at 2018-08-01 11:09:22 +1000
+Processing by FlightsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"agUq4n3x7LkxCHVYxRdUJ327mrmMDL6ZdGZyGlByNoIKwPSCukCyqutIL3cmx0wWgVjUbDTIPSxQsvEWta7W5w==", "flight"=>{"flight_name"=>"QF190", "origin"=>"SYD", "destination"=>"MEL", "date(1i)"=>"2018", "date(2i)"=>"8", "date(3i)"=>"2", "plane_id"=>"747"}, "commit"=>"Create Flight"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/flights_controller.rb:30
+  [1m[36mFlight Create (16.6ms)[0m  [1m[32mINSERT INTO "flights" ("flight_name", "origin", "destination", "date", "plane_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["flight_name", "QF190"], ["origin", "SYD"], ["destination", "MEL"], ["date", "2018-08-02"], ["plane_id", 747], ["created_at", "2018-08-01 01:09:22.699497"], ["updated_at", "2018-08-01 01:09:22.699497"]]
+  ↳ app/controllers/flights_controller.rb:30
+  [1m[35m (9.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/flights_controller.rb:30
+Redirected to http://localhost:3000/flights/1
+Completed 302 Found in 38ms (ActiveRecord: 26.4ms)
+
+
+Started GET "/flights/1" for 127.0.0.1 at 2018-08-01 11:09:22 +1000
+Processing by FlightsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFlight Load (6.2ms)[0m  [1m[34mSELECT  "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:67
+  Rendering flights/show.html.erb within layouts/application
+  Rendered flights/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 63ms (Views: 36.8ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/flights.json" for 127.0.0.1 at 2018-08-01 11:09:28 +1000
+Processing by FlightsController#index as JSON
+  Rendering flights/index.json.jbuilder
+  [1m[36mFlight Load (0.5ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.json.jbuilder:1
+  Rendered flights/_flight.json.jbuilder (0.9ms)
+  Rendered flights/index.json.jbuilder (8.9ms)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes" for 127.0.0.1 at 2018-08-01 11:15:38 +1000
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by PlanesController#index as HTML
+  Rendering planes/index.html.erb within layouts/application
+  [1m[36mPlane Load (6.8ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
+  ↳ app/views/planes/index.html.erb:16
+  Rendered planes/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 740ms (Views: 695.7ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/planes/new" for 127.0.0.1 at 2018-08-01 11:15:42 +1000
+Processing by PlanesController#new as HTML
+  Rendering planes/new.html.erb within layouts/application
+  Rendered planes/_form.html.erb (55.1ms)
+  Rendered planes/new.html.erb within layouts/application (60.5ms)
+Completed 200 OK in 113ms (Views: 95.5ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/planes" for 127.0.0.1 at 2018-08-01 11:16:23 +1000
+Processing by PlanesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZAakqrOAZSgNZG1q9A2r3xEPf2nrU3xVlZBWEak8zEWaaCL5a+XKd0XpAkW21/Q3AfQsm4CMkvquX008Vr8J2w==", "plane"=>{"name"=>"747", "row"=>"21", "column"=>"A B C D"}, "commit"=>"Create Plane"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/planes_controller.rb:30
+  [1m[36mPlane Create (1.8ms)[0m  [1m[32mINSERT INTO "planes" ("name", "row", "column", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "747"], ["row", 21], ["column", "A B C D"], ["created_at", "2018-08-01 01:16:23.971607"], ["updated_at", "2018-08-01 01:16:23.971607"]]
+  ↳ app/controllers/planes_controller.rb:30
+  [1m[35m (10.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/planes_controller.rb:30
+Redirected to http://localhost:3000/planes/1
+Completed 302 Found in 21ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/planes/1" for 127.0.0.1 at 2018-08-01 11:16:23 +1000
+Processing by PlanesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.7ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.html.erb within layouts/application
+  Rendered planes/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 50ms (Views: 33.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/planes.json" for 127.0.0.1 at 2018-08-01 11:16:37 +1000
+Processing by PlanesController#index as JSON
+  Rendering planes/index.json.jbuilder
+  [1m[36mPlane Load (0.4ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
+  ↳ app/views/planes/index.json.jbuilder:1
+  Rendered planes/_plane.json.jbuilder (1.3ms)
+  Rendered planes/index.json.jbuilder (10.4ms)
+Completed 200 OK in 25ms (Views: 19.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/planes" for 127.0.0.1 at 2018-08-01 11:19:06 +1000
+Processing by PlanesController#index as HTML
+  Rendering planes/index.html.erb within layouts/application
+  [1m[36mPlane Load (0.6ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
+  ↳ app/views/planes/index.html.erb:16
+  Rendered planes/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 43ms (Views: 37.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/planes/new" for 127.0.0.1 at 2018-08-01 11:19:09 +1000
+Processing by PlanesController#new as HTML
+  Rendering planes/new.html.erb within layouts/application
+  Rendered planes/_form.html.erb (3.5ms)
+  Rendered planes/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 73ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planes.json" for 127.0.0.1 at 2018-08-01 11:19:35 +1000
+Processing by PlanesController#index as JSON
+  Rendering planes/index.json.jbuilder
+  [1m[36mPlane Load (0.4ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
+  ↳ app/views/planes/index.json.jbuilder:1
+  Rendered planes/_plane.json.jbuilder (0.9ms)
+  Rendered planes/index.json.jbuilder (4.6ms)
+Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/planes.json" for 127.0.0.1 at 2018-08-01 11:20:40 +1000
+Processing by PlanesController#index as JSON
+  Rendering planes/index.json.jbuilder
+  [1m[36mPlane Load (0.4ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
+  ↳ app/views/planes/index.json.jbuilder:1
+  Rendered planes/_plane.json.jbuilder (0.6ms)
+  Rendered planes/index.json.jbuilder (3.1ms)
+Completed 200 OK in 22ms (Views: 15.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/flights.json" for 127.0.0.1 at 2018-08-01 11:50:03 +1000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by FlightsController#index as JSON
+  Rendering flights/index.json.jbuilder
+  [1m[36mFlight Load (0.8ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.json.jbuilder:1
+  Rendered flights/_flight.json.jbuilder (1.7ms)
+  Rendered flights/index.json.jbuilder (34.0ms)
+Completed 200 OK in 109ms (Views: 52.8ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/flights" for 127.0.0.1 at 2018-08-01 12:05:39 +1000
+Processing by FlightsController#index as HTML
+  Rendering flights/index.html.erb within layouts/application
+  [1m[36mFlight Load (1.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.html.erb:18
+  Rendered flights/index.html.erb within layouts/application (67.2ms)
+Completed 200 OK in 645ms (Views: 628.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/flights/new" for 127.0.0.1 at 2018-08-01 12:05:41 +1000
+Processing by FlightsController#new as HTML
+  Rendering flights/new.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "planes"."name", "planes"."id" FROM "planes"[0m
+  ↳ app/views/flights/_form.html.erb:36
+  Rendered flights/_form.html.erb (72.0ms)
+  Rendered flights/new.html.erb within layouts/application (76.7ms)
+Completed 200 OK in 120ms (Views: 103.6ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/flights" for 127.0.0.1 at 2018-08-01 12:05:55 +1000
+Processing by FlightsController#index as HTML
+  Rendering flights/index.html.erb within layouts/application
+  [1m[36mFlight Load (0.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.html.erb:18
+  Rendered flights/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 53ms (Views: 47.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/planes" for 127.0.0.1 at 2018-08-01 12:06:01 +1000
+Processing by PlanesController#index as HTML
+  Rendering planes/index.html.erb within layouts/application
+  [1m[36mPlane Load (0.4ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
+  ↳ app/views/planes/index.html.erb:16
+  Rendered planes/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 48ms (Views: 36.2ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/planes/new" for 127.0.0.1 at 2018-08-01 12:06:02 +1000
+Processing by PlanesController#new as HTML
+  Rendering planes/new.html.erb within layouts/application
+  Rendered planes/_form.html.erb (5.7ms)
+  Rendered planes/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 53ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/planes" for 127.0.0.1 at 2018-08-01 12:06:21 +1000
+Processing by PlanesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"viw+YWQgRV5lW+ONE/ch85xwzH4cp8kQSg5I5m3jeD9AQrgyvEXqAS3WjKJRLX4bjIufjHd4J79xwVPLkmC9oQ==", "plane"=>{"name"=>"787", "row"=>"63", "column"=>"4"}, "commit"=>"Create Plane"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/planes_controller.rb:30
+  [1m[36mPlane Create (2.1ms)[0m  [1m[32mINSERT INTO "planes" ("name", "row", "column", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "787"], ["row", 63], ["column", "4"], ["created_at", "2018-08-01 02:06:21.381918"], ["updated_at", "2018-08-01 02:06:21.381918"]]
+  ↳ app/controllers/planes_controller.rb:30
+  [1m[35m (9.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/planes_controller.rb:30
+Redirected to http://localhost:3000/planes/2
+Completed 302 Found in 20ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/planes/2" for 127.0.0.1 at 2018-08-01 12:06:21 +1000
+Processing by PlanesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlane Load (1.3ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.html.erb within layouts/application
+  Rendered planes/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 51ms (Views: 34.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/flights" for 127.0.0.1 at 2018-08-01 12:06:26 +1000
+Processing by FlightsController#index as HTML
+  Rendering flights/index.html.erb within layouts/application
+  [1m[36mFlight Load (0.6ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.html.erb:18
+  Rendered flights/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 45ms (Views: 40.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/flights/new" for 127.0.0.1 at 2018-08-01 12:06:28 +1000
+Processing by FlightsController#new as HTML
+  Rendering flights/new.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "planes"."name", "planes"."id" FROM "planes"[0m
+  ↳ app/views/flights/_form.html.erb:36
+  Rendered flights/_form.html.erb (13.1ms)
+  Rendered flights/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 68ms (Views: 59.5ms | ActiveRecord: 0.5ms)
+
+

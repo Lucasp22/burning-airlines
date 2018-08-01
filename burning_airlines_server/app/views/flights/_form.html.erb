@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :plane_id %>
-    <%= form.number_field :plane_id %>
+    <%= form.select :plane_id, Plane.pluck(:name, :id)  %>
   </div>
 
   <div class="actions">
