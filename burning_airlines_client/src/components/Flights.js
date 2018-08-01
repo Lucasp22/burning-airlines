@@ -86,7 +86,8 @@ class Display extends Component {
     return (
       <div>
           <ul>
-            { this.props.flights.map( (s) => <li key={s.id}>{s.flight_name}{s.origin}{s.destination}{s.date}{s.plane_id}</li>)}
+
+            {this.props.flights.map((s) => <p key={s.id}>{s.name}&nbsp{s.name}&nbsp;{s.flight_name}&nbsp;{s.origin}&nbsp;{s.destination}&nbsp;{s.date}&nbsp;{s.plane_id}</p>)}
           </ul>
       </div>
     );
