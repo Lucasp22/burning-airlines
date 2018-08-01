@@ -16,8 +16,7 @@ import SearchFlight from './components/SearchFlight'
 const Routes = (
   <Router>
     <div>
-      <Route path = "/home" component = {Home} />
-
+      <Route path = "/" component = {Home} />
       <Route path = "/planes" component = {Planes} />
       <Route path = "/flights" component = {Flights} />
       <Route path = "/flightinfo" component = {FlightInfo} />
