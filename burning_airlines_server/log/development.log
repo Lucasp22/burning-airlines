@@ -1419,3 +1419,180 @@ Migrating to AddSeatsToPlanes (20180801013914)
   ↳ bin/rails:9
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-08-01 11:47:57 +1000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lucaspadua/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lucaspadua/.rvm/gems/ruby-2.5.1/gems/railties-5.2.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lucaspadua/.rvm/gems/ruby-2.5.1/gems/railties-5.2.0/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/planes" for 127.0.0.1 at 2018-08-01 11:48:16 +1000
+Processing by PlanesController#index as HTML
+  Rendering planes/index.html.erb within layouts/application
+  [1m[36mPlane Load (12.4ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
+  ↳ app/views/planes/index.html.erb:16
+  Rendered planes/index.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 95ms (Views: 53.2ms | ActiveRecord: 28.7ms)
+
+
+Started GET "/planes/new" for 127.0.0.1 at 2018-08-01 11:48:19 +1000
+Processing by PlanesController#new as HTML
+  Rendering planes/new.html.erb within layouts/application
+  Rendered planes/_form.html.erb (2.3ms)
+  Rendered planes/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 77ms (Views: 56.1ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/planes/new" for 127.0.0.1 at 2018-08-01 11:50:01 +1000
+Processing by PlanesController#new as HTML
+  Rendering planes/new.html.erb within layouts/application
+  Rendered planes/_form.html.erb (2.2ms)
+  Rendered planes/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 58ms (Views: 55.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/planes" for 127.0.0.1 at 2018-08-01 11:50:10 +1000
+Processing by PlanesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QJYhC7yQ5L1lnGPEkQZd60WSoxsBmE90s+suoqC0Eb4d9poBP9UutlC/SCFvS98XAKNKKKgxTGWTNHppKS3+BA==", "plane"=>{"name"=>"123", "row"=>"123", "column"=>"123", "seats"=>"123"}, "commit"=>"Create Plane"}
+Unpermitted parameter: :seats
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/planes_controller.rb:30
+  [1m[36mPlane Create (1.7ms)[0m  [1m[32mINSERT INTO "planes" ("name", "row", "column", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "123"], ["row", 123], ["column", "123"], ["created_at", "2018-08-01 01:50:10.713424"], ["updated_at", "2018-08-01 01:50:10.713424"]]
+  ↳ app/controllers/planes_controller.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/planes_controller.rb:30
+Redirected to http://localhost:3000/planes/1
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/planes/1" for 127.0.0.1 at 2018-08-01 11:50:10 +1000
+Processing by PlanesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlane Load (0.3ms)[0m  [1m[34mSELECT  "planes".* FROM "planes" WHERE "planes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/planes_controller.rb:67
+  Rendering planes/show.html.erb within layouts/application
+  Rendered planes/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 51ms (Views: 46.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/planes" for 127.0.0.1 at 2018-08-01 11:50:27 +1000
+Processing by PlanesController#index as HTML
+  Rendering planes/index.html.erb within layouts/application
+  [1m[36mPlane Load (0.5ms)[0m  [1m[34mSELECT "planes".* FROM "planes"[0m
+  ↳ app/views/planes/index.html.erb:16
+  Rendered planes/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 122ms (Views: 115.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/flights/" for 127.0.0.1 at 2018-08-01 11:50:31 +1000
+Processing by FlightsController#index as HTML
+  Rendering flights/index.html.erb within layouts/application
+  [1m[36mFlight Load (12.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.html.erb:18
+  Rendered flights/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 71ms (Views: 49.8ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/flights/new" for 127.0.0.1 at 2018-08-01 11:50:34 +1000
+Processing by FlightsController#new as HTML
+  Rendering flights/new.html.erb within layouts/application
+  Rendered flights/_form.html.erb (13.6ms)
+  Rendered flights/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 86ms (Views: 65.6ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/flights" for 127.0.0.1 at 2018-08-01 11:51:01 +1000
+Processing by FlightsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ofKxhJT6OGNXYkR1Kz87iwk7GlX/EsXjKrslqHHruKZhHSdn0GeaA/ZEbkGtWO/q27gd2Xdkv/dLbD1bJda1yg==", "flight"=>{"flight_name"=>"Ga", "origin"=>"nilba", "destination"=>"webdev", "date(1i)"=>"2019", "date(2i)"=>"8", "date(3i)"=>"1", "plane_id"=>"1"}, "commit"=>"Create Flight"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/flights_controller.rb:30
+  [1m[36mFlight Create (0.8ms)[0m  [1m[32mINSERT INTO "flights" ("flight_name", "origin", "destination", "date", "plane_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["flight_name", "Ga"], ["origin", "nilba"], ["destination", "webdev"], ["date", "2019-08-01"], ["plane_id", 1], ["created_at", "2018-08-01 01:51:02.003702"], ["updated_at", "2018-08-01 01:51:02.003702"]]
+  ↳ app/controllers/flights_controller.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/flights_controller.rb:30
+Redirected to http://localhost:3000/flights/1
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/flights/1" for 127.0.0.1 at 2018-08-01 11:51:02 +1000
+Processing by FlightsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT  "flights".* FROM "flights" WHERE "flights"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:67
+  Rendering flights/show.html.erb within layouts/application
+  Rendered flights/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 52ms (Views: 47.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/flights" for 127.0.0.1 at 2018-08-01 11:51:04 +1000
+Processing by FlightsController#index as HTML
+  Rendering flights/index.html.erb within layouts/application
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/views/flights/index.html.erb:18
+  Rendered flights/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 63ms (Views: 59.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reservations/1" for 127.0.0.1 at 2018-08-01 11:51:12 +1000
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReservation Load (13.0ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:67
+Completed 404 Not Found in 22ms (ActiveRecord: 17.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Reservation with 'id'=1):
+  
+app/controllers/reservations_controller.rb:67:in `set_reservation'
+Started GET "/reservations" for 127.0.0.1 at 2018-08-01 11:51:15 +1000
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/views/reservations/index.html.erb:15
+  Rendered reservations/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 48ms (Views: 44.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reservations/new" for 127.0.0.1 at 2018-08-01 11:51:18 +1000
+Processing by ReservationsController#new as HTML
+  Rendering reservations/new.html.erb within layouts/application
+  Rendered reservations/_form.html.erb (3.1ms)
+  Rendered reservations/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 67ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2018-08-01 11:51:38 +1000
+Processing by ReservationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZDKkCHHVtUP3NjxeYnE0NL8Da9fg59SfzUGQWnrhs7q/0F5QtEhv715K7ymwMFnIBFm8jg0fsqUZnjrAJm6Rvg==", "reservation"=>{"flight_id"=>"1", "user_id"=>"1"}, "commit"=>"Create Reservation"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/reservations_controller.rb:30
+  [1m[36mReservation Create (1.1ms)[0m  [1m[32mINSERT INTO "reservations" ("flight_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["flight_id", 1], ["user_id", 1], ["created_at", "2018-08-01 01:51:38.351196"], ["updated_at", "2018-08-01 01:51:38.351196"]]
+  ↳ app/controllers/reservations_controller.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/reservations_controller.rb:30
+Redirected to http://localhost:3000/reservations/1
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/reservations/1" for 127.0.0.1 at 2018-08-01 11:51:38 +1000
+Processing by ReservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" WHERE "reservations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:67
+  Rendering reservations/show.html.erb within layouts/application
+  Rendered reservations/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 49ms (Views: 44.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2018-08-01 11:51:44 +1000
+Processing by ReservationsController#index as HTML
+  Rendering reservations/index.html.erb within layouts/application
+  [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/views/reservations/index.html.erb:15
+  Rendered reservations/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 56ms (Views: 51.7ms | ActiveRecord: 0.4ms)
+
+
