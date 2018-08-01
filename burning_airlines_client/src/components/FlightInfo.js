@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:3000/secrets.json'
+const SERVER_URL = 'http://localhost:3000/planes.json'
 
 class FlightInfo extends Component {
   constructor(){
@@ -14,15 +14,21 @@ class FlightInfo extends Component {
     }
     this.chooseSeat = this.chooseSeat.bind(this);
     this.updateSeat = this.updateSeat.bind(this);
-    const fetchplaneDetails = () => {
+    const fetchPlaneDetails = () => {
     axios.get(SERVER_URL).then((results) => {
-      this.setState({secrets: results.data})
-      setTimeout(fetchSecrets, 4000);
+      this.setState({rows: results.row, columns: +results.column})
+      setTimeout(fetchPlaneDetails, 4000);
     })
   }
-    fetchSecrets();
-  }
-
+    fetchPlaneDetails();
+}
+  //   saveSecret(s){
+  //   // const newSecret = {content: s};
+  //   // this.setState({secrets: [newSecret, ...this.state.secrets]})
+  //   axios.post(SERVER_URL, {content: s}).then((results) => {
+  //     this.setState({secrets: [results.data, ...this.state.secrets]})
+  //   })
+  // }
 
 chooseSeat(seatNumber){
   this.setState({
