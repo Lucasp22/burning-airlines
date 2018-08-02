@@ -22,6 +22,7 @@ getFlights(origin, destination){
   // console.log(origin, destination);
   // console.log("something");
   axios.get(SERVER_URL).then((results) => {
+    console.log(results.data);
     const searchResult = results.data;
     let resultFlights = []
     for (var i = 0; i < searchResult.length; i++) {
@@ -56,6 +57,7 @@ getFlights(origin, destination){
 
 
 
+
   render() {
     return(
       <div>
@@ -64,7 +66,7 @@ getFlights(origin, destination){
         {/* this is like gallery */}
         <FlightResults flights={this.state.flights} />
         <ul>
-          {this.state.resultFlights.map( (result) => <li>{result.flight_name}</li>)}
+          {this.state.resultFlights.map( (result) => <Link to={`/flightinfo/${result.id}`}><li>{result.flight_name}</li></Link>)}
         </ul>
 
       </div>
@@ -125,7 +127,7 @@ class SearchForm extends Component {
           </select> */}
 
 
-        <input type="submit" value="Go" />
+        <input type="submit" value="Seach Flight" />
       </form>
     )
   }
