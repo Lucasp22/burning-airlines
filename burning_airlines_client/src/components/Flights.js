@@ -62,6 +62,8 @@ class CreateFlights extends Component {
 
   render() {
     return(
+      <div>
+
       <form onSubmit={ this._handleSubmitsaveFlight }>
         <label> FlightName  </label>
         <textarea onChange={ this._handleChangeFlightName } value={this.state.flight_name}></textarea>
@@ -80,6 +82,7 @@ class CreateFlights extends Component {
                   <br/><br/>
         <input type="submit" value="CreatPlane" />
       </form>
+    </div>
     );
   }
 };
@@ -110,6 +113,12 @@ class Flights extends Component {
   render(){
     return (
       <div>
+        <div style ={{textAlign: "right"}}>
+        <Link to={`/planes`} style = {{padding: 15}}>Planes</Link>
+        <Link to={`/flights`} style = {{padding: 15}}>Flights</Link>
+        <Link to={`#`} style = {{padding: 15}}>Admin</Link>
+
+        </div>
         <h1>Flights</h1>
           <CreateFlights onSubmit={ this.saveFlight } onSubmit={ this.saveFlight } />
           <Display flights={ this.state.flights } />
