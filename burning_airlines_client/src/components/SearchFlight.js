@@ -66,7 +66,7 @@ getFlights(origin, destination){
         {/* this is like gallery */}
         <FlightResults flights={this.state.flights} />
         <ul>
-          {this.state.resultFlights.map( (result) => <Link to={`/flightinfo/${result.id}`}><li>{result.flight_name}</li></Link>)}
+          {this.state.resultFlights.map( (result) => <Link to ={`/flightinfo/${result.plane_id}`}><li>{result.flight_name}</li></Link>)}
         </ul>
 
       </div>
