@@ -71,7 +71,6 @@ getFlights(origin, destination){
 
 
 class SearchForm extends Component {
-<<<<<<< HEAD
   constructor() {
     super();
     this.state = {origin: '', destination: ''}
