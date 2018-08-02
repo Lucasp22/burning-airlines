@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const SERVER_URL = 'http://localhost:3000/flights.json';
 
-
+//Parent Comp
 class CreateFlights extends Component {
   constructor() {
     super();
@@ -14,76 +14,56 @@ class CreateFlights extends Component {
     this._handleChangeDestination = this._handleChangeDestination.bind(this);
     this._handleChangeDate = this._handleChangeDate.bind(this);
     this._handleChangePlaneId = this._handleChangePlaneId.bind(this);
-
+    //submit
     this._handleSubmitsaveFlight = this._handleSubmitsaveFlight.bind(this);
-
-  }
-  ////////////////////
+  }//end of constructor
   _handleChangeFlightName(e) {
     this.setState( {flight_name: e.target.value} );
   }
-
-  ////////////////////////
   _handleChangeOrigin(e) {
     this.setState( {origin: e.target.value} );
   }
-  //////////////////////////
   _handleChangeDestination(e) {
     this.setState( {destination: e.target.value} );
   }
-  ////////////////////////////
   _handleChangeDate(e) {
     this.setState( {date: e.target.value} );
   }
-  ////////////////////////////////submit
-  _handleSubmitsaveFlight(e) {
-    e.preventDefault();
-    this.props.onSubmit( this.state);
-  }
-  ///////////////////////////////
   _handleChangePlaneId(e) {
     this.setState( {plane_id: e.target.value} );
   }
-/////////////////////////////////
-  // _handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.onSubmit( this.state.flight_name);
-  //   this.props.onSubmit( this.state.origin);
-  //   this.props.onSubmit( this.state.destination);
-  //   this.props.onSubmit( this.state.date);
-  //   this.props.onSubmit( this.state.plane_id);
-  //   this.setState({flight_name: ''});
-  //   this.setState({origin: ''});
-  //   this.setState({destination: ''});
-  //   this.setState({date: ''});
-  //   this.setState({plane_id: ''});
-  // }
+  //submit
+    _handleSubmitsaveFlight(e) {
+      e.preventDefault();
+      this.props.onSubmit( this.state);
+    }
 
 
   render() {
     return(
-      <form onSubmit={ this._handleSubmitsaveFlight }>
+       <form onSubmit={ this._handleSubmitsaveFlight }>
         <label> FlightName  </label>
         <textarea onChange={ this._handleChangeFlightName } value={this.state.flight_name}></textarea>
 
         <label> Origin   </label>
-          <textarea onChange={ this._handleChangeOrigin } value={this.state.origin}></textarea>
+        <textarea onChange={ this._handleChangeOrigin } value={this.state.origin}></textarea>
 
-            <label> Destination  </label>
-            <textarea onChange={ this._handleChangeDestination } value={this.state.destination}></textarea>
+        <label> Destination  </label>
+        <textarea onChange={ this._handleChangeDestination } value={this.state.destination}></textarea>
 
-              <label> Dates       </label>
-              <textarea onChange={ this._handleChangeDate } value={this.state.date}></textarea>
+        <label> Dates       </label>
+        <textarea onChange={ this._handleChangeDate } value={this.state.date}></textarea>
 
-                <label> PlaneId  </label>
-                <textarea onChange={ this._handleChangePlaneId } value={this.state.plane_id}></textarea>
-                  <br/><br/>
+        <label> PlaneId  </label>
+        <textarea onChange={ this._handleChangePlaneId } value={this.state.plane_id}></textarea>
+        <br/><br/>
         <input type="submit" value="CreatPlane" />
-      </form>
-    );
-  }
-};
+       </form>
+    );//end of return
+  }// end of render
+}; //end of Parent Comp
 
+//Child Comp
 class Flights extends Component {
   constructor (){
     super();
@@ -101,7 +81,6 @@ class Flights extends Component {
   }
 
   saveFlight(s) {
-    // console.log(parseInt(s.plane_id));
     axios.post(SERVER_URL, {flight_name: s.flight_name, origin: s.origin, destination: s.destination, date: s.date, plane_id: parseInt(s.plane_id)}).then((results) => {
       console.log("results data: ", results.data);
       this.setState( {flights: [results.data,...this.state.flights]  });
@@ -117,7 +96,7 @@ class Flights extends Component {
     )
   }
 };
-
+//Displayplanes
 class Display extends Component {
   render() {
     return (
