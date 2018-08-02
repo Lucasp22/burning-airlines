@@ -18,7 +18,9 @@ class LoginForm extends Component {
         <h2>Login</h2>
       <input name="user_name"type="text" placeholder="User Name" required autoFocus />
       <input type="text" placeholder="Password" required />
-      <input name="submit" type="submit" value="Submit" />
+      <Link to={`/searchflight`}>
+        <input  name="submit" type="submit" value="Submit" />
+      </Link>
       </form>
     );
   }
