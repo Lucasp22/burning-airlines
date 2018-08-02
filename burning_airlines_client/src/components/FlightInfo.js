@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -46,8 +46,7 @@ chooseSeat(seatNumber){
 })
 }
 
-updateSeat(seatNumber){
-  console.log(seatNumber)
+updateSeat(seatNumber, bgColor){
 
   let confirmedSeats = this.state.confirmed_seats
   confirmedSeats.push(seatNumber)
@@ -58,10 +57,16 @@ updateSeat(seatNumber){
 
   render() {
     return(
+
       <div>
+      <div style ={{textAlign: "right"}}>
+      <Link to={`/flights`} style = {{padding: 10}}>Flights</Link>
+      <Link to={`/searchflight`} style = {{padding: 10}}>Search</Link>
+      </div>
+      <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat } confirmed_seats = {this.state.confirmed_seats} />
       <Seats onClick = {this.chooseSeat} seat_names = {this.state.seat_names} confirmed_seats = {this.state.confirmed_seats}/>
       <br />
-      <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat} confirmed_seats = {this.state.confirmed_seats}/>
+
       </div>
     )
   }
@@ -89,7 +94,7 @@ class Seats extends Component {
 
   render(){
     return(
-      <div>
+      <div style ={{marginLeft: 450}}>
       <table>
       <thead>
 
@@ -109,7 +114,7 @@ function TableRow (props) {
 
   return (
     <tr>{props.seats_row.map((seat)=> {
-      return <td> <input type = "button" value ={props.confirmed_seats.includes(seat)? "X" : seat } onClick = {props.onClick} style={{ width: 100, fontSize: 50, padding: 50 }}/></td>
+      return <td> <input type = "button" value ={props.confirmed_seats.includes(seat)? "X"  : seat } onClick = {props.onClick} style={{backgroundColor: props.confirmed_seats.includes(seat)?  "red": "green", width:100, fontSize: 20, marginLeft: 20, marginRight: 20, color: "white", borderColor: "black", borderWidth: 5}}/></td>
     })}</tr>
   )
 }
@@ -122,15 +127,14 @@ class ConfirmSeat extends Component {
     }
   }
 
-
-
   render(){
     return(
-      <div>
+      <div >
 
-      <div>
+
+      <div style={{textAlign:"center", margin: 50}}>
       <span> {this.props.num} </span>
-      <input type="button" value ="Select Seat" onClick = {() => this.props.onClick(this.props.num)}/>
+      <input type="button" value ="Select Seat" onClick = {() => this.props.onClick(this.props.num) }/>
       </div>
 
       </div>
