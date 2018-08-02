@@ -66,7 +66,7 @@ updateSeat(seatNumber, bgColor){
       <Link to={`/planes`} style = {{padding: 15}}>Planes</Link>
       <Link to={`/flights`} style = {{padding: 15}}>Flights</Link>
       <Link to={`/searchflight`} style = {{padding: 15}}>Search</Link>
-      <p style = {{padding: 15}}>Bob</p>
+    <Link to={`#`} style = {{padding: 15}}>User: Bob</Link>
       </div>
       <h1 style ={{textAlign: "center"}}>Plane: {this.state.name}</h1>
       <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat } confirmed_seats = {this.state.confirmed_seats} />

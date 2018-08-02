@@ -66,7 +66,7 @@ getFlights(origin, destination){
         <Link to={`/planes`} style = {{padding: 15}}>Planes</Link>
         <Link to={`/flights`} style = {{padding: 15}}>Flights</Link>
         <Link to={`/searchflight`} style = {{padding: 15}}>Search</Link>
-        <p style = {{padding: 15}}>Bob</p>
+        <Link to={`#`} style = {{padding: 15}}>User: Bob</Link>
         </div>
         <h1 style = {{textAlign: 'center'}}>Search Flights</h1>
         <SearchForm onSubmit={this.getFlights}/>
