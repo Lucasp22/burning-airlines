@@ -67,7 +67,7 @@ class Flights extends Component {
 
   saveFlight(s) {
     axios.post(SERVER_URL, {flight_name: s}, {origin: s}, {destination: s}, {date: s}, {plane_id: s}).then((results) => {
-      this.setState( {secrets: [results.data,...this.state.flights]  });
+      this.setState( {flights: [results.data,...this.state.flights]  });
     });
   }
   render(){
@@ -86,18 +86,12 @@ class Display extends Component {
     return (
       <div>
           <ul>
-            {this.props.flights.map((s) => <p key={s.id}>{s.name}&nbsp{s.name}&nbsp;{s.flight_name}&nbsp;{s.origin}&nbsp;{s.destination}&nbsp;{s.date}&nbsp;{s.plane_id}</p>)}
 
+            {this.props.flights.map((s) => <p key={s.id}>{s.name}&nbsp{s.name}&nbsp;{s.flight_name}&nbsp;{s.origin}&nbsp;{s.destination}&nbsp;{s.date}&nbsp;{s.plane_id}</p>)}
           </ul>
       </div>
     );
   }
 };
-
-
-
-
-
-
 
 export default Flights;
