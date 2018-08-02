@@ -9,41 +9,76 @@ class CreateFlights extends Component {
   constructor() {
     super();
     this.state = {flight_name: ''}, {origin: ''}, {destination: ''}, {date: ''}, {plane_id: ''};
-    this._handleChange = this._handleChange.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
+    this._handleChangeFlightName = this._handleChangeFlightName.bind(this);
+    this._handleChangeOrigin = this._handleChangeOrigin.bind(this);
+    this._handleChangeDestination = this._handleChangeDestination.bind(this);
+    this._handleChangeDate = this._handleChangeDate.bind(this);
+    this._handleChangePlaneId = this._handleChangePlaneId.bind(this);
+
+    this._handleSubmitsaveFlight = this._handleSubmitsaveFlight.bind(this);
+
   }
-  _handleChange(e) {
+  ////////////////////
+  _handleChangeFlightName(e) {
     this.setState( {flight_name: e.target.value} );
+  }
+
+  ////////////////////////
+  _handleChangeOrigin(e) {
     this.setState( {origin: e.target.value} );
+  }
+  //////////////////////////
+  _handleChangeDestination(e) {
     this.setState( {destination: e.target.value} );
+  }
+  ////////////////////////////
+  _handleChangeDate(e) {
     this.setState( {date: e.target.value} );
-    this.setState( {plane_id: e.target.value} );
-
   }
-
-  _handleSubmit(e) {
+  ////////////////////////////////submit
+  _handleSubmitsaveFlight(e) {
     e.preventDefault();
-    this.props.onSubmit( this.state.flight_name);
-    this.props.onSubmit( this.state.origin);
-    this.props.onSubmit( this.state.destination);
-    this.props.onSubmit( this.state.date);
-    this.props.onSubmit( this.state.plane_id);
-    this.setState({flight_name: ''});
-    this.setState({origin: ''});
-    this.setState({destination: ''});
-    this.setState({date: ''});
-    this.setState({plane_id: ''});
+    this.props.onSubmit( this.state);
   }
+  ///////////////////////////////
+  _handleChangePlaneId(e) {
+    this.setState( {plane_id: e.target.value} );
+  }
+/////////////////////////////////
+  // _handleSubmit(e) {
+  //   e.preventDefault();
+  //   this.props.onSubmit( this.state.flight_name);
+  //   this.props.onSubmit( this.state.origin);
+  //   this.props.onSubmit( this.state.destination);
+  //   this.props.onSubmit( this.state.date);
+  //   this.props.onSubmit( this.state.plane_id);
+  //   this.setState({flight_name: ''});
+  //   this.setState({origin: ''});
+  //   this.setState({destination: ''});
+  //   this.setState({date: ''});
+  //   this.setState({plane_id: ''});
+  // }
+
+
   render() {
     return(
-      <form onSubmit={ this._handleSubmit }>
+      <form onSubmit={ this._handleSubmitsaveFlight }>
+        <label> FlightName  </label>
+        <textarea onChange={ this._handleChangeFlightName } value={this.state.flight_name}></textarea>
 
-        <textarea onChange={ this._handleChange } value={this.state.flight_name}></textarea>
-          <textarea onChange={ this._handleChange } value={this.state.origin}></textarea>
-            <textarea onChange={ this._handleChange } value={this.state.destination}></textarea>
-              <textarea onChange={ this._handleChange } value={this.state.date}></textarea>
-                <textarea onChange={ this._handleChange } value={this.state.plane_id}></textarea>
-        <input type="submit" value="submit" />
+        <label> Origin   </label>
+          <textarea onChange={ this._handleChangeOrigin } value={this.state.origin}></textarea>
+
+            <label> Destination  </label>
+            <textarea onChange={ this._handleChangeDestination } value={this.state.destination}></textarea>
+
+              <label> Dates       </label>
+              <textarea onChange={ this._handleChangeDate } value={this.state.date}></textarea>
+
+                <label> PlaneId  </label>
+                <textarea onChange={ this._handleChangePlaneId } value={this.state.plane_id}></textarea>
+                  <br/><br/>
+        <input type="submit" value="CreatPlane" />
       </form>
     );
   }
@@ -60,21 +95,23 @@ class Flights extends Component {
       axios.get(SERVER_URL).then( (results) => {
         this.setState({ flights: results.data });
         setTimeout(fetchFlight, 4000);
-      });
+      }).catch(err => console.log(err))
     }
     fetchFlight();
   }
 
   saveFlight(s) {
-    axios.post(SERVER_URL, {flight_name: s}, {origin: s}, {destination: s}, {date: s}, {plane_id: s}).then((results) => {
-      this.setState( {secrets: [results.data,...this.state.flights]  });
-    });
+    // console.log(parseInt(s.plane_id));
+    axios.post(SERVER_URL, {flight_name: s.flight_name, origin: s.origin, destination: s.destination, date: s.date, plane_id: parseInt(s.plane_id)}).then((results) => {
+      console.log("results data: ", results.data);
+      this.setState( {flights: [results.data,...this.state.flights]  });
+    }).catch(err => console.log(err))
   }
   render(){
     return (
       <div>
         <h1>Flights</h1>
-          <CreateFlights onSubmit={ this.saveFlight } />
+          <CreateFlights onSubmit={ this.saveFlight } onSubmit={ this.saveFlight } />
           <Display flights={ this.state.flights } />
       </div>
     )
@@ -86,18 +123,11 @@ class Display extends Component {
     return (
       <div>
           <ul>
-            {this.props.flights.map((s) => <p key={s.id}>{s.name}&nbsp{s.name}&nbsp;{s.flight_name}&nbsp;{s.origin}&nbsp;{s.destination}&nbsp;{s.date}&nbsp;{s.plane_id}</p>)}
-
+            {this.props.flights.map((s) => <p key={s.id}>{s.name}&nbsp;{s.name}&nbsp;{s.flight_name}&nbsp;{s.origin}&nbsp;{s.destination}&nbsp;{s.date}&nbsp;{s.plane_id}</p>)}
           </ul>
       </div>
     );
   }
 };
-
-
-
-
-
-
 
 export default Flights;

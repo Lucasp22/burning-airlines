@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-let id = 1;
 
-const SERVER_URL = `http://localhost:3000/planes/${id}.json`
 
 class FlightInfo extends Component {
+
   constructor(){
     super();
     this.state ={
@@ -14,22 +14,29 @@ class FlightInfo extends Component {
       seat_names: [[]],
       confirmed_seats: ["2B"]
     }
+
     this.updateSeat = this.updateSeat.bind(this);
     this.chooseSeat = this.chooseSeat.bind(this);
-    const fetchPlaneDetails = () => {
-    axios.get(SERVER_URL).then((results) => {
-      let rows = []
-      const rowLength = +results.data.row
-      for(let i = 1 ; i< rowLength+1 ; i++){
-          rows.push([i+"A",i+"B", i+"C",i+"D"]);
-      }
-      this.setState({ seat_names: rows})
-      setTimeout(fetchPlaneDetails, 4000);
-    })
-  }
-    fetchPlaneDetails();
+
 }
 
+componentDidMount(){
+  let id = this.props.match.params.id
+  console.log(id)
+  const SERVER_URL = `http://localhost:3000/planes/${id}.json`
+  const fetchPlaneDetails = () => {
+  axios.get(SERVER_URL).then((results) => {
+    let rows = []
+    const rowLength = +results.data.row
+    for(let i = 1 ; i< rowLength+1 ; i++){
+        rows.push([i+"A",i+"B", i+"C",i+"D"]);
+    }
+    this.setState({ seat_names: rows})
+    setTimeout(fetchPlaneDetails, 4000);
+  })
+}
+  fetchPlaneDetails();
+}
 
 chooseSeat(seatNumber){
   this.setState({
@@ -39,8 +46,7 @@ chooseSeat(seatNumber){
 })
 }
 
-updateSeat(seatNumber){
-  console.log(seatNumber)
+updateSeat(seatNumber, bgColor){
 
   let confirmedSeats = this.state.confirmed_seats
   confirmedSeats.push(seatNumber)
@@ -51,11 +57,18 @@ updateSeat(seatNumber){
 
   render() {
     return(
+
       <div>
-      <h1> Flight Info Coming Soon </h1>
+      <div style ={{textAlign: "right"}}>
+      <Link to={`/planes`} style = {{padding: 10}}>Planes</Link>
+      <Link to={`/flights`} style = {{padding: 10}}>Flights</Link>
+      <Link to={`/searchflight`} style = {{padding: 10}}>Search</Link>
+
+      </div>
+      <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat } confirmed_seats = {this.state.confirmed_seats} />
       <Seats onClick = {this.chooseSeat} seat_names = {this.state.seat_names} confirmed_seats = {this.state.confirmed_seats}/>
       <br />
-      <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat} confirmed_seats = {this.state.confirmed_seats}/>
+
       </div>
     )
   }
@@ -83,7 +96,7 @@ class Seats extends Component {
 
   render(){
     return(
-      <div>
+      <div style ={{marginLeft: 450}}>
       <table>
       <thead>
 
@@ -103,7 +116,7 @@ function TableRow (props) {
 
   return (
     <tr>{props.seats_row.map((seat)=> {
-      return <td> <input type = "button" value ={props.confirmed_seats.includes(seat)? "X" : seat } onClick = {props.onClick} style={{ width: 100, fontSize: 50, padding: 50 }}/></td>
+      return <td> <input type = "button" value ={props.confirmed_seats.includes(seat)? "X"  : seat } onClick = {props.onClick} style={{backgroundColor: props.confirmed_seats.includes(seat)?  "red": "green", width:100, fontSize: 20, marginLeft: 20, marginRight: 20, color: "white", borderColor: "black", borderWidth: 5}}/></td>
     })}</tr>
   )
 }
@@ -116,15 +129,14 @@ class ConfirmSeat extends Component {
     }
   }
 
-
-
   render(){
     return(
-      <div>
+      <div >
 
-      <div>
+
+      <div style={{textAlign:"center", margin: 50}}>
       <span> {this.props.num} </span>
-      <input type="button" value ="Select Seat" onClick = {() => this.props.onClick(this.props.num)}/>
+      <input type="button" value ="Select Seat" onClick = {() => this.props.onClick(this.props.num) }/>
       </div>
 
       </div>
