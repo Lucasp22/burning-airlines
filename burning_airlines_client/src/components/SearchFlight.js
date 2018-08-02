@@ -22,6 +22,7 @@ getFlights(origin, destination){
   // console.log(origin, destination);
   // console.log("something");
   axios.get(SERVER_URL).then((results) => {
+    console.log(results.data);
     const searchResult = results.data;
     let resultFlights = []
     for (var i = 0; i < searchResult.length; i++) {
@@ -56,15 +57,23 @@ getFlights(origin, destination){
 
 
 
+
   render() {
     return(
+
       <div>
-        <h1>Search Flights</h1>
+        <div style ={{textAlign: "right"}}>
+        <Link to={`/planes`} style = {{padding: 15}}>Planes</Link>
+        <Link to={`/flights`} style = {{padding: 15}}>Flights</Link>
+        <Link to={`/searchflight`} style = {{padding: 15}}>Search</Link>
+        <p style = {{padding: 15}}>Bob</p>
+        </div>
+        <h1 style = {{textAlign: 'center'}}>Search Flights</h1>
         <SearchForm onSubmit={this.getFlights}/>
         {/* this is like gallery */}
         <FlightResults flights={this.state.flights} />
         <ul>
-          {this.state.resultFlights.map( (result) => <li>{result.flight_name}</li>)}
+          {this.state.resultFlights.map( (result) => <Link to ={`/flightinfo/${result.plane_id}`}><li>{result.flight_name}</li></Link>)}
         </ul>
 
       </div>
@@ -103,10 +112,10 @@ class SearchForm extends Component {
 
   render() {
     return(
-      <form onSubmit={this._handleSubmit}>
+      <form style = {{textAlign: 'center'}} onSubmit={this._handleSubmit}>
 
-        <input type="text" placeholder="Origin" required autoFocus onInput={this._handleOriginChange} />
-        <input type="text" placeholder="Destination" required onInput={this._handleDestinationChange} />
+        <input style = {{textAlign: 'center'}} type="text" placeholder="Origin" required autoFocus onInput={this._handleOriginChange} /> <br/><br/>
+        <input style = {{textAlign: 'center'}} type="text" placeholder="Destination" required onInput={this._handleDestinationChange} /> <br/><br/>
 
 
         {/*TODO <p>Origin</p>
@@ -125,7 +134,7 @@ class SearchForm extends Component {
           </select> */}
 
 
-        <input type="submit" value="Go" />
+        <input type="submit" value="Seach Flight" />
       </form>
     )
   }
@@ -142,7 +151,7 @@ class FlightResults extends Component {
       //this is the flight info in array:
 
       <div>
-        <p>Flight Search Results:</p>
+        <p style = {{textAlign: 'center'}} >Flight Search Results:</p>
         <ul>
           {this.props.flights.map(function(f) {
             //below is not quite complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.

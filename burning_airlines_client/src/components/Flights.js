@@ -89,6 +89,12 @@ class Flights extends Component {
   render(){
     return (
       <div>
+        <div style ={{textAlign: "right"}}>
+        <Link to={`/planes`} style = {{padding: 15}}>Planes</Link>
+        <Link to={`/flights`} style = {{padding: 15}}>Flights</Link>
+        <Link to={`#`} style = {{padding: 15}}>Admin</Link>
+
+        </div>
         <h1>Flights</h1>
           <CreateFlights onSubmit={ this.saveFlight } onSubmit={ this.saveFlight } />
           <Display flights={ this.state.flights } />
