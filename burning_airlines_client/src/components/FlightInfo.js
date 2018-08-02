@@ -36,6 +36,7 @@ componentDidMount(){
     this.setState({ seat_names: rows, name: name})
     setTimeout(fetchPlaneDetails, 4000);
   })
+
 }
   fetchPlaneDetails();
 }
@@ -67,7 +68,7 @@ updateSeat(seatNumber, bgColor){
       <Link to={`/searchflight`} style = {{padding: 15}}>Search</Link>
       <p style = {{padding: 15}}>Bob</p>
       </div>
-      <h1 style ={{textAlign: "center"}}>{this.state.name}</h1>
+      <h1 style ={{textAlign: "center"}}>Plane: {this.state.name}</h1>
       <ConfirmSeat num = {this.state.seat_num} onClick = {this.updateSeat } confirmed_seats = {this.state.confirmed_seats} />
       <Seats onClick = {this.chooseSeat} seat_names = {this.state.seat_names} confirmed_seats = {this.state.confirmed_seats}/>
       <br />
