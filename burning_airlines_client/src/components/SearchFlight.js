@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 //need to install npm package once i have file so that i can use the below:
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+const SERVER_URL = 'http://localhost:3000/flights.json';
 
 class SearchFlights extends Component {
   constructor(props) {
@@ -123,14 +126,6 @@ class SearchForm extends Component {
 
 
         <input type="submit" value="Go" />
-=======
-  render() {
-    return(
-      <form>
-        <input type="text" placeholder="Origin" required autofocus/>
-        <input type="text" placeholder="Destination" required/>
-        <input type="submit" value="Go"/>
->>>>>>> b70f75d126f3e57c4e4d53b565ed3dc1b359f483
       </form>
     )
   }
@@ -138,27 +133,24 @@ class SearchForm extends Component {
 
 class FlightResults extends Component {
   render() {
-<<<<<<< HEAD
 
-=======
-      const flights = ['QF1', 'VG2', 'JS9'];
->>>>>>> b70f75d126f3e57c4e4d53b565ed3dc1b359f483
     return(
       //fix this when functional - want link to be dynamic and link to particular flight related to the link using
 
       //going to take the flight info and loop through to push links for each onto page....
 
       //this is the flight info in array:
-      // <ul>
-      //   {flights.map(function(flight) {
-      //     //below is not quote complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.
-      //     return <li><Link to={`/flight/${flight}`}></li>;
-      //   })};
-      // </ul>
 
-
-
-      <Link to="/flight">Flights</Link> //this will be the only link you have to hard code cos you will wrap the loop around this, so it will just print however many you have
+      <div>
+        <p>Flight Search Results:</p>
+        <ul>
+          {this.props.flights.map(function(f) {
+            //below is not quite complete, later with more information and values for flights i will need to pull out from the array of objects the flight id or the flight number or something.
+            return <li>Flight: <Link to={`/flight`}>{f.flight}</Link></li>;
+            // return <li>flight:{flight}</li>
+          })}
+        </ul>
+    </div>
     )
   }
 }

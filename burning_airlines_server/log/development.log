@@ -51484,3 +51484,18 @@ Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.4ms)
 >>>>>>> b70f75d126f3e57c4e4d53b565ed3dc1b359f483
 
 
+Started GET "/flights.json" for 127.0.0.1 at 2018-08-02 11:04:31 +1000
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/elli-jayne/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by FlightsController#index as JSON
+  Rendering flights/index.json.jbuilder
+  [1m[36mFlight Load (1.6ms)[0m  [1m[34mSELECT "flights".* FROM "flights" ORDER BY created_at DESC[0m
+  ↳ app/views/flights/index.json.jbuilder:1
+  Rendered flights/_flight.json.jbuilder (2.6ms)
+  Rendered flights/_flight.json.jbuilder (0.6ms)
+  Rendered flights/_flight.json.jbuilder (0.4ms)
+  Rendered flights/_flight.json.jbuilder (0.4ms)
+  Rendered flights/index.json.jbuilder (79.9ms)
+Completed 200 OK in 155ms (Views: 73.3ms | ActiveRecord: 37.5ms)
+
+
