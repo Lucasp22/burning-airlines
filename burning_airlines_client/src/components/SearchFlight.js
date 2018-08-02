@@ -22,6 +22,7 @@ getFlights(origin, destination){
   // console.log(origin, destination);
   // console.log("something");
   axios.get(SERVER_URL).then((results) => {
+    console.log(results.data);
     const searchResult = results.data;
     let resultFlights = []
     for (var i = 0; i < searchResult.length; i++) {
@@ -53,6 +54,7 @@ getFlights(origin, destination){
 
     //inside here need this.setState for search flights, do something with the results and map it or get it only screen
   }
+
 
 
 
@@ -125,7 +127,7 @@ class SearchForm extends Component {
           </select> */}
 
 
-        <input type="submit" value="Go" />
+        <input type="submit" value="Seach Flight" />
       </form>
     )
   }
