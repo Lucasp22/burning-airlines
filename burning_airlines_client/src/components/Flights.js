@@ -41,12 +41,7 @@ class CreateFlights extends Component {
 
   render() {
     return(
-<<<<<<< HEAD
-
-      <form onSubmit={ this._handleSubmitsaveFlight }>
-=======
        <form onSubmit={ this._handleSubmitsaveFlight }>
->>>>>>> 5a198b9985e87b105e61ae779a2292b8d7bfa2ed
         <label> FlightName  </label>
         <textarea onChange={ this._handleChangeFlightName } value={this.state.flight_name}></textarea>
 
